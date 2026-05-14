@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasted Zero Challenge</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#f0f8f5;
+      color:#333;
+      line-height:1.6;
+    }
+
+    /* LANDING PAGE */
+    #landing{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:linear-gradient(to bottom,#2e7d32,#4caf50);
+      color:white;
+      padding:20px;
+      animation:fadeIn 2s;
+    }
+
+    #landing h1{
+      font-size:40px;
+      margin-bottom:15px;
+    }
+
+    #landing p{
+      font-size:18px;
+      max-width:600px;
+    }
+
+    /* MAIN */
+    #main{
+      display:none;
+    }
+
+    header{
+      background:#2e7d32;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    header h1{
+      margin-bottom:10px;
+      font-size:32px;
+    }
+
+    nav{
+      background:#388e3c;
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:15px;
+      padding:15px;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#dcedc8;
+    }
+
+    section{
+      display:none;
+      padding:30px 20px;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    section.active{
+      display:block;
+      animation:fadeIn 0.7s;
+    }
+
+    h2{
+      color:#2e7d32;
+      margin-bottom:15px;
+    }
+
+    h3{
+      margin-top:20px;
+      color:#388e3c;
+    }
+
+    p{
+      margin-bottom:15px;
+    }
+
+    ul{
+      margin-left:20px;
+      margin-bottom:15px;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:15px;
+      margin-bottom:25px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .three-r{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .box{
+      background:#e8f5e9;
+      padding:20px;
+      border-radius:12px;
+    }
+
+    .highlight{
+      background:#dcedc8;
+      padding:15px;
+      border-left:5px solid #2e7d32;
+      margin-top:15px;
+      border-radius:8px;
+    }
+
+    .quote{
+      text-align:center;
+      font-size:22px;
+      font-weight:bold;
+      color:#2e7d32;
+      margin:30px 0;
+    }
+
+    /* KALKULATOR */
+    .calculator{
+      background:white;
+      padding:25px;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      max-width:450px;
+    }
+
+    .calculator input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#2e7d32;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1b5e20;
+    }
+
+    #hasil{
+      margin-top:15px;
+      font-weight:bold;
+    }
+
+    footer{
+      background:#2e7d32;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:30px;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(15px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:600px){
+      #landing h1{
+        font-size:30px;
+      }
+
+      header h1{
+        font-size:24px;
+      }
+
+      .quote{
+        font-size:18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LANDING PAGE -->
+  <div id="landing">
+    <h1>Projek KKA Azmi & Fauziah</h1>
+    <p>
+      Selamat datang di Wasted Zero Challenge.
+      Bersama kita wujudkan lingkungan bersih,
+      hijau, dan bebas sampah.
+    </p>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main">
+
+    <header>
+      <h1>🌱 Wasted Zero Challenge ♻️</h1>
+      <p>Bersama kita wujudkan lingkungan bebas sampah</p>
+    </header>
+
+    <nav>
+      <a onclick="showPage('pembukaan')">Pembukaan</a>
+      <a onclick="showPage('himbauan')">Himbauan</a>
+      <a onclick="showPage('kalkulator')">Kalkulator Sampah</a>
+    </nav>
+
+    <!-- PEMBUKAAN -->
+    <section id="pembukaan" class="active">
+
+      <div class="card">
+        <h2>Selamat Datang</h2>
+
+        <p>
+          Wasted Zero Challenge hadir sebagai gerakan peduli lingkungan
+          yang mengajak seluruh masyarakat untuk bersama-sama menciptakan
+          bumi yang lebih bersih, sehat, hijau, dan berkelanjutan.
+        </p>
+
+        <p>
+          Website ini menjadi ruang edukasi dan inspirasi untuk meningkatkan
+          kesadaran terhadap permasalahan sampah yang semakin meningkat
+          setiap harinya.
+        </p>
+
+        <p>
+          Dengan langkah kecil seperti mengurangi penggunaan plastik,
+          memilah sampah, dan mendaur ulang barang bekas,
+          kita dapat memberikan dampak besar bagi lingkungan.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Konsep 3R</h2>
+
+        <div class="three-r">
+
+          <div class="box">
+            <h3>🌿 Reduce</h3>
+            <p>
+              Mengurangi penggunaan barang sekali pakai
+              agar jumlah sampah semakin berkurang.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>🔄 Reuse</h3>
+            <p>
+              Menggunakan kembali barang yang masih layak
+              pakai agar tidak langsung menjadi sampah.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>♻️ Recycle</h3>
+            <p>
+              Mendaur ulang sampah menjadi produk baru
+              yang lebih bermanfaat.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>📊 Kalkulator Sampah</h2>
+
+        <p>
+          Fitur kalkulator sampah membantu pengguna mengetahui
+          perkiraan jumlah sampah harian yang dihasilkan.
+        </p>
+
+        <div class="highlight">
+          Dengan mengetahui jumlah sampah harian,
+          kita dapat lebih sadar terhadap kebiasaan sehari-hari
+          dan mulai melakukan perubahan kecil demi lingkungan yang lebih baik.
+        </div>
+      </div>
+
+      <div class="quote">
+        🌍 "Perubahan besar selalu dimulai dari langkah kecil."
+      </div>
+
+    </section>
+
+    <!-- HIMBAUAN -->
+    <section id="himbauan">
+
+      <div class="card">
+        <h2>🌍 Pesan untuk Kita Semua</h2>
+
+        <p>
+          Menjaga kebersihan lingkungan merupakan tanggung jawab bersama.
+          Langkah kecil yang dilakukan secara konsisten dapat memberikan
+          dampak besar bagi masa depan bumi.
+        </p>
+
+        <h3>1. Pemilahan Sampah</h3>
+
+        <ul>
+          <li>Sampah organik dapat diolah menjadi kompos.</li>
+          <li>Sampah anorganik dapat didaur ulang.</li>
+        </ul>
+
+        <h3>2. Mengurangi Plastik</h3>
+
+        <ul>
+          <li>Menggunakan tas belanja kain.</li>
+          <li>Membawa botol minum sendiri.</li>
+          <li>Mengurangi sedotan plastik.</li>
+        </ul>
+
+        <h3>3. Mendukung Daur Ulang</h3>
+
+        <ul>
+          <li>Mengikuti program bank sampah.</li>
+          <li>Menggunakan produk daur ulang.</li>
+        </ul>
+
+        <h3>4. Menghemat Energi</h3>
+
+        <ul>
+          <li>Mematikan lampu saat tidak digunakan.</li>
+          <li>Menghemat penggunaan air.</li>
+        </ul>
+
+        <h3>🌱 Kesimpulan</h3>
+
+        <p>
+          Menjaga lingkungan adalah investasi jangka panjang
+          untuk generasi mendatang.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- KALKULATOR -->
+    <section id="kalkulator">
+
+      <div class="calculator">
+
+        <h2>Kalkulator Sampah</h2>
+
+        <p>Masukkan jumlah sampah harian (kg):</p>
+
+        <input type="number" id="plastik" placeholder="Sampah Plastik">
+        <input type="number" id="organik" placeholder="Sampah Organik">
+        <input type="number" id="kertas" placeholder="Sampah Kertas">
+
+        <button onclick="hitungSampah()">
+          Hitung Total
+        </button>
+
+        <p id="hasil"></p>
+
+      </div>
+
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Wasted Zero Challenge | Azmi & Fauziah</p>
+    </footer>
+
+  </div>
+
+  <script>
+
+    // LANDING PAGE
+    setTimeout(() => {
+      document.getElementById("landing").style.display = "none";
+      document.getElementById("main").style.display = "block";
+    }, 3000);
+
+    // NAVIGATION
+    function showPage(pageId){
+
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach(section => {
+        section.classList.remove("active");
+      });
+
+      document.getElementById(pageId).classList.add("active");
+    }
+
+    // KALKULATOR
+    function hitungSampah(){
+
+      let plastik =
+        parseFloat(document.getElementById("plastik").value) || 0;
+
+      let organik =
+        parseFloat(document.getElementById("organik").value) || 0;
+
+      let kertas =
+        parseFloat(document.getElementById("kertas").value) || 0;
+
+      let total = plastik + organik + kertas;
+
+      let pesan = "";
+
+      if(total > 5){
+        pesan =
+        "Mari kurangi jumlah sampah demi lingkungan yang lebih sehat.";
+      } else {
+        pesan =
+        "Bagus! Anda sudah membantu menjaga lingkungan.";
+      }
+
+      document.getElementById("hasil").innerHTML =
+        "Total sampah harian Anda: <b>" +
+        total +
+        " kg</b><br>" +
+        pesan;
+    }
+
+  </script>
+
+</body>
+</html>
